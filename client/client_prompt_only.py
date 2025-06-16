@@ -15,6 +15,10 @@ REQUEST_TIMEOUT_SECONDS = 60
 # --- End Configuration ---
 
 def send_text_prompt(user_query: str, system_prompt: str = None):
+    """
+    Sends a text prompt to the server.
+    Prompts are fixed but the user query can be changed.
+    """
     headers = {"Content-Type": "application/json"}
     payload = {
         "user_query": user_query
@@ -31,8 +35,8 @@ def send_text_prompt(user_query: str, system_prompt: str = None):
 
     try:
         response = requests.post(SERVER_ENDPOINT, headers=headers, data=json.dumps(payload), 
-timeout=REQUEST_TIMEOUT_SECONDS)
-        response.raise_for_status() # Raise an HTTPError for bad status codes (4xx or 5xx)
+        timeout=REQUEST_TIMEOUT_SECONDS)
+        response.raise_for_status()
 
         response_data = response.json()
         end_time = time.time()
@@ -64,21 +68,17 @@ timeout=REQUEST_TIMEOUT_SECONDS)
         print(f"[{datetime.now().strftime('%H:%M:%S')}] An unexpected error occurred: {e}")
 
 if __name__ == "__main__":
-    # Example 1: Simple factual query
     send_text_prompt(user_query="What is the capital of France?")
 
-    # Example 2: Role-playing
     send_text_prompt(
         system_prompt="You are a wise old wizard. Answer all questions in rhyming couplets.",
         user_query="Tell me about artificial intelligence."
     )
 
-    # Example 3: Different role
     send_text_prompt(
         system_prompt="""You are a helpful and professional customer support agent for a tech 
 company.""",
         user_query="My internet is not working. What should I do?"
     )
 
-    # Example 4: Ask Qwen about itself (if it's a Qwen text model)
     send_text_prompt(user_query="What is your name and who created you?")

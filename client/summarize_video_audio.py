@@ -108,8 +108,6 @@ def main():
         summary_text = response_data.get("llm_response", "No summary text from LLM.")
 
         # print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Received summary (Latency: {latency:.2f}s):")
-        print(f"--- Summarization Result ---")
-        print(summary_text)
         print_framed_output(summary_text)
         
         # print(f"--- End Summarization Result ---")

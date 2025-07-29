@@ -2,6 +2,7 @@ from colorama import Fore, Style, init
 from rich.console import Console
 from rich.panel import Panel
 from rich import box
+from datetime import datetime
 
 console = Console()
 
@@ -27,15 +28,14 @@ def print_framed_output(response_text):
         # - box: Defines the style of the border (e.g., box.DOUBLE, box.ROUNDED)
         # - padding: Adds space around the text inside the panel
         panel = Panel(
-            response_text,
-            title=f"[bold green]Output at {current_time}[/bold green]",
-            border_style="cyan",
-            box=box.DOUBLE,  # Or box.ROUNDED, box.SQUARE, box.HEAVY
-            padding=(1, 2) # (top/bottom, left/right)
+            f"[bold white]{response_text}[/bold white]",
+            title=f"[bold yellow]VLM Analysis at {current_time}[/bold yellow]",
+            border_style="bright_cyan",
+            box=box.HEAVY,  # Or box.ROUNDED, box.SQUARE, box.HEAVY
+            padding=(2, 4)
         )
-        
-        # Print the panel to the console
+
         console.print(panel)
-        console.print("\n") # Add an extra newline for more separation between panels
+        console.print("\n")
     except Exception as e:
         print(e)

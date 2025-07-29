@@ -2,6 +2,7 @@ import requests
 import json
 import time
 from datetime import datetime
+from utils.utils import print_framed_output
 
 # --- Configuration ---
 # IMPORTANT: Replace with the actual IP address of your Ubuntu server
@@ -44,11 +45,8 @@ def send_text_prompt(user_query: str, system_prompt: str = None):
 
         llm_response_text = response_data.get("llm_response", "No LLM response key found.")
 
-        print(f"[{datetime.now().strftime('%H:%M:%S')}]")
-        print("Received response (Latency: {latency:.2f}s):")
-        print(f"--- LLM Response ---")
-        print(llm_response_text)
-        print(f"--- End LLM Response ---")
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] Received response (Latency: {latency:.2f}s):")
+        print_framed_output(llm_response_text)
         print(f"Server message: {response_data.get('message')}")
         print(f"GPU Status: {response_data.get('gpu_status')}")
 

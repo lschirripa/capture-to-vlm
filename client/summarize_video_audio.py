@@ -50,7 +50,7 @@ def main():
     # --- Read VLM output file ---
     if not os.path.exists(VLM_OUTPUT_FILE_PATH):
         print(f"Error: VLM output file not found at '{VLM_OUTPUT_FILE_PATH}'.")
-        print("Please run the VLM client script (`main3.py`) first to generate the descriptions.")
+        print("Please run the VLM client script (`client.py`) first to generate the descriptions.")
         return
 
     print(f"Reading VLM outputs from: {VLM_OUTPUT_FILE_PATH}")

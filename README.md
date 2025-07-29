@@ -1,8 +1,21 @@
 # Real Time Video Analysis and Summarization System
 
+
+
 This project provides a comprehensive system for analyzing real-time videos using Vision Language Models (VLM) and generating summaries of the content. The system works in two main phases: real-time frame analysis and post-processing summarization.
 
 The server component uses Ollama to run the VLM and LLM models, providing real-time analysis and summarization capabilities.
+
+## Demo
+
+<!-- VLM Analysis Demo -->
+![VLM Analysis Demo](docs/demos/vlm_analysis.gif)
+*Real-time VLM analysis output from `client.py`*
+
+<!-- Summarization Demo -->
+![Summarization Demo](docs/demos/summarize_audio.gif)
+*Comprehensive video+audio summary from `summarize_video_audio.py`*
+
 
 ## Features
 
@@ -28,12 +41,8 @@ The server component uses Ollama to run the VLM and LLM models, providing real-t
 - Receives and displays frame descriptions
 - Saves timestamped descriptions to a file
 
-### 3. Video Summary Generation (`summarize_video.py`)
-- Processes the saved frame descriptions
-- Generates chronological summaries of video content
-- Creates concise narrative summaries of visual events
-
 ### 4. Audio-Video Summary Generation (`summarize_video_audio.py`)
+- Generates chronological summaries of video and audio content
 - Combines saved frame descriptions with audio transcription
 - Provides comprehensive summaries integrating both visual and audio content
 
@@ -54,20 +63,10 @@ The server component uses Ollama to run the VLM and LLM models, providing real-t
 
 3. Prepare input stream and files:
    - Ensure your web camera is accessible and properly configured
-   - For audio analysis, prepare audio transcription files
+   - For audio analysis, prepare audio transcription files at AUDIO_TRANSCRIPTION_FILE_PATH
 
 4. Start the server:
    ```bash
    # Run the FastAPI server with uvicorn
    uvicorn server.server:app --host 0.0.0.0 --port 8000 --workers 1
    ```
-
-<!-- ## Demo
-
-### Real-time VLM Analysis
-![VLM Analysis Demo](docs/demos/vlm_analysis.gif)
-*Real-time video frame analysis showing VLM descriptions of each scene*
-
-### Summarization Process
-![Summarization Demo](docs/demos/summarization.gif)
-*Example of how the system processes and summarizes video content* -->

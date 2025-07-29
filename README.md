@@ -9,12 +9,16 @@ The server component uses Ollama to run the VLM and LLM models, providing real-t
 ## Demo
 
 <!-- VLM Analysis Demo -->
-![VLM Analysis Demo](docs/demos/vlm_analysis.gif)
 *Real-time VLM analysis output from `client.py`*
 
+![VLM Analysis Demo](docs/demos/vlm_analysis.gif)
+
+
 <!-- Summarization Demo -->
+*Comprehensive video summary from `summarize_video_audio.py`*
+
 ![Summarization Demo](docs/demos/summarize_audio.gif)
-*Comprehensive video+audio summary from `summarize_video_audio.py`*
+
 
 
 ## Features
